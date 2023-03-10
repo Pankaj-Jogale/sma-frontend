@@ -63,7 +63,8 @@ const Post = ({ post }) => {
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={post.profilePic} alt="" />
+            <img src={"/upload/" + currentUser.profilePic} alt="" />
+            {/* <img src={post.profilePic} alt="" /> */}
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
@@ -105,7 +106,7 @@ const Post = ({ post }) => {
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <TextsmsOutlinedIcon />
-            12 Comments
+            Comments
           </div>
           <div className="item">
             <ShareOutlinedIcon />

@@ -23,6 +23,7 @@ const Navbar = () => {
     // const res = await axios.post("http://localhost:8800/api/auth/logout");
     // console.log(res.status);
     localStorage.removeItem("user");
+    //sessionStorage.removeItem("accessToken");
     navigate("/login");
   };
   return (
@@ -55,7 +56,8 @@ const Navbar = () => {
         <EmailOutlinedIcon />
         <NotificationsNoneOutlinedIcon />
         <div className="user">
-          <img src={currentUser.profilePic} alt="" />
+          {/* <img src={currentUser.profilePic} alt="" /> */}
+          <img src={"/upload/" + currentUser.profilePic} alt="" />
           <span>{currentUser.name}</span>
         </div>
       </div>

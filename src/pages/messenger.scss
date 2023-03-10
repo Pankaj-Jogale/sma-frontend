@@ -1,0 +1,115 @@
+.messenger {
+  height: calc(100vh - 70px);
+  display: flex;
+  padding-top: 20px;
+  .chatMenu {
+    flex: 3.5;
+    background-color: rgb(221, 221, 221);
+  }
+
+  .chatBox {
+    flex: 5.5;
+  }
+  .chatBoxWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .chatBoxTop {
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 10px;
+  }
+  .chatBoxBottom {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .chatMessageInput {
+      width: 80%;
+      height: 90%;
+      padding: 10px;
+    }
+    .chatSubmitButton {
+      width: 70px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: teal;
+      color: white;
+    }
+  }
+  .chatOnline {
+    flex: 3;
+  }
+
+  .chatMenuWrapper,
+  .chatBoxWrapper,
+  .chatOnlineWrapper {
+    padding: 10px;
+    height: 100%;
+  }
+  .chatMenuInput {
+    padding: 10px 0;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+}
+.conversions {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+
+  .conversationImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  .conversationName {
+    font-weight: 500;
+  }
+}
+.click:hover {
+  background-color: rgb(182, 215, 216);
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: #1877f2;
+  .messageTop {
+    display: flex;
+    .messageImg {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .messageText {
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #1877f2;
+      color: aliceblue;
+      max-width: 300px;
+    }
+  }
+}
+.messageBottom {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.message.own {
+  align-items: flex-end;
+}
+.message.own .messageText {
+  background-color: rgb(189, 189, 189);
+  color: black;
+}

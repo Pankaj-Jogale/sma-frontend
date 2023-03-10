@@ -3,25 +3,23 @@ import { Link } from "react-router-dom";
 import "./register.scss";
 import axios from "axios";
 
-const Register = () => {
-  const [inputs, setInputs] = useState({
-    username: "",
-    email: "",
-    password: "",
-    name: "",
-  });
+const Adminregister = () => {
+  const [name, setName] = useState("");
+  const [pass, setPass] = useState("");
+
   const [err, setErr] = useState(null);
 
-  const handleChange = (e) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-  const handleClick = async (e) => {
+  const createnewusr = async (e) => {
     e.preventDefault();
 
+    let data = {
+      adminname: name,
+      password: pass,
+    };
     try {
-      await axios.post("http://localhost:8800/api/auth/register", inputs);
+      await axios.post("http://localhost:8800/api/admin/register", data);
     } catch (err) {
-      setErr(err);
+      setErr(err.response.data);
     }
   };
   console.log(err);
@@ -29,47 +27,41 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="left">
-          <h1>Hello User.</h1>
+          <h1>Hello Admin.</h1>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
             inventore illum sint eius, tenetur voluptatem quibusdam. Sit dicta
             aliquid vitae laboriosam, aperiam quod iusto recusandae, debitis
             tempore repellendus fugiat! Molestias!
           </p>
-          <span>Do you have an Account?</span>
-          <Link to="/login">
+          <span>Already have an Admin Account?</span>
+          <Link to="/admin">
             <button>Login</button>
           </Link>
         </div>
         <div className="right">
-          <h1>Register</h1>
+          <h1>Admin Register</h1>
           <form>
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Admin Name"
+              name="username"
+              onChange={(e) => setName(e.target.value)}
+            />
+            {/* <input
+              type="password"
+              placeholder="Admin Key"
               name="name"
               onChange={handleChange}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              placeholder="Username"
-              name="username"
-              onChange={handleChange}
-            />
+            /> */}
             <input
               type="password"
               placeholder="Password"
               name="password"
-              onChange={handleChange}
+              onChange={(e) => setPass(e.target.value)}
             />
-            {err}
-            <button onClick={handleClick}>Register</button>
+            {err && err}
+            <button onClick={createnewusr}>Register</button>
           </form>
         </div>
       </div>
@@ -77,4 +69,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Adminregister;

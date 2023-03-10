@@ -1,61 +1,44 @@
-import { useState } from "react";
+import "./admin.scss";
 import { Link } from "react-router-dom";
-import "./register.scss";
-import axios from "axios";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import { useState } from "react";
 
-const Register = () => {
+const Admin = () => {
   const [inputs, setInputs] = useState({
     username: "",
-    email: "",
     password: "",
-    name: "",
   });
   const [err, setErr] = useState(null);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-  const handleClick = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    try {
-      await axios.post("http://localhost:8800/api/auth/register", inputs);
-    } catch (err) {
-      setErr(err);
-    }
   };
-  console.log(err);
+  console.log(inputs);
   return (
-    <div className="register">
+    <div className="login">
       <div className="card">
         <div className="left">
-          <h1>Hello User.</h1>
+          <h1>Hello Admin.</h1>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
             inventore illum sint eius, tenetur voluptatem quibusdam. Sit dicta
             aliquid vitae laboriosam, aperiam quod iusto recusandae, debitis
             tempore repellendus fugiat! Molestias!
           </p>
-          <span>Do you have an Account?</span>
-          <Link to="/login">
-            <button>Login</button>
+          <span>Create Admin Account?</span>
+          <Link to="/adminregister">
+            <button>Register</button>
           </Link>
         </div>
         <div className="right">
-          <h1>Register</h1>
+          <div className="icon">
+            <AdminPanelSettingsOutlinedIcon style={{ fontSize: "200px" }} />
+          </div>
+          <h1>Admin Login</h1>
           <form>
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              onChange={handleChange}
-            />
             <input
               type="text"
               placeholder="Username"
@@ -68,8 +51,8 @@ const Register = () => {
               name="password"
               onChange={handleChange}
             />
-            {err}
-            <button onClick={handleClick}>Register</button>
+            {/* {err && err} */}
+            <button onClick={handleLogin}>Login</button>
           </form>
         </div>
       </div>
@@ -77,4 +60,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Admin;

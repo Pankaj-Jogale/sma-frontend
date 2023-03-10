@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -23,6 +24,9 @@ const Login = () => {
       setErr(err.response.data);
     }
   };
+  const handleClick = async () => {
+    navigate("/admin");
+  };
   return (
     <div className="login">
       <div className="card">
@@ -40,6 +44,12 @@ const Login = () => {
           </Link>
         </div>
         <div className="right">
+          <div className="admin">
+            <button onClick={handleClick}>
+              <AdminPanelSettingsOutlinedIcon />
+              Admin
+            </button>
+          </div>
           <h1>Login</h1>
           <form>
             <input

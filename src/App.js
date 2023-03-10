@@ -18,6 +18,9 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Admin from "./pages/admin/Admin";
+import Adminregister from "./pages/admin/Adminregister";
+import Messenger from "./pages/Messenger";
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
@@ -74,6 +77,19 @@ function App() {
     {
       path: "/register",
       element: <Register />,
+    },
+
+    {
+      path: "/admin",
+      element: <Admin />,
+    },
+    {
+      path: "/adminregister",
+      element: <Adminregister />,
+    },
+    {
+      path: "/message",
+      element: <Messenger />,
     },
   ]);
 
