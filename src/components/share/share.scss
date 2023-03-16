@@ -14,16 +14,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
         .left {
           display: flex;
           align-items: center;
           flex: 3;
+
           img {
             height: 40px;
             width: 40px;
             border-radius: 50%;
             object-fit: cover;
+            @include mobile {
+              padding-left: 0%;
+            }
           }
           input {
             border: none;
@@ -32,6 +35,11 @@
             width: 60%;
             background-color: transparent;
             color: themed("textColor");
+            @include mobile {
+              font-size: 9px;
+              width: 80%;
+              padding-left: 1%;
+            }
           }
         }
         .right {

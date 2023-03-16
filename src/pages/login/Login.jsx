@@ -23,6 +23,9 @@ const Login = () => {
       setErr(err.response.data);
     }
   };
+  const handleClick = async () => {
+    navigate("/admin");
+  };
   return (
     <div className="login">
       <div className="card">
@@ -40,6 +43,13 @@ const Login = () => {
           </Link>
         </div>
         <div className="right">
+          {/* <div className="admin">
+          <button onClick={handleClick}>
+            <AdminPanelSettingsOutlinedIcon />
+            Admin
+          </button>
+        </div> */}
+
           <h1>Login</h1>
           <form>
             <input

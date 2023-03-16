@@ -13,7 +13,10 @@ import Tutorials from "../../assets/11.png";
 import Courses from "../../assets/12.png";
 import Fund from "../../assets/13.png";
 import { AuthContext } from "../../context/authContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 
 const LeftBar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -23,16 +26,22 @@ const LeftBar = () => {
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src={currentUser.profilePic} alt="" />
-            <span>{currentUser.name}</span>
+            <Link className="link" to={`/profile/${currentUser.id}`}>
+              <img src={currentUser.profilePic} alt="" />
+              <span>View Profile</span>
+            </Link>
           </div>
           <div className="item">
-            <img src={Friends} alt="" />
-            <span>Friends</span>
+            <Link className="link" to={"/friends"}>
+              <img src={Friends} alt="" />
+              <span>Friends</span>
+            </Link>
           </div>
           <div className="item">
-            <img src={Groups} alt="" />
-            <span>Groups</span>
+            <Link className="link" to={"/chat"}>
+              <img src={Messages} alt="" />
+              <span>Messages</span>
+            </Link>
           </div>
           <div className="item">
             <img src={Market} alt="" />
@@ -67,8 +76,8 @@ const LeftBar = () => {
             <span>Videos</span>
           </div>
           <div className="item">
-            <img src={Messages} alt="" />
-            <span>Messages</span>
+            <img src={Groups} alt="" />
+            <span>Groups</span>
           </div>
         </div>
         <hr />
@@ -81,30 +90,6 @@ const LeftBar = () => {
           <div className="item">
             <img src={Tutorials} alt="" />
             <span>Tutorials</span>
-          </div>
-          <div className="item">
-            <img src={Courses} alt="" />
-            <span>Courses</span>
-          </div>
-          <div className="item">
-            <img src={Courses} alt="" />
-            <span>Courses</span>
-          </div>
-          <div className="item">
-            <img src={Courses} alt="" />
-            <span>Courses</span>
-          </div>
-          <div className="item">
-            <img src={Courses} alt="" />
-            <span>Courses</span>
-          </div>
-          <div className="item">
-            <img src={Courses} alt="" />
-            <span>Courses</span>
-          </div>
-          <div className="item">
-            <img src={Courses} alt="" />
-            <span>Courses</span>
           </div>
           <div className="item">
             <img src={Courses} alt="" />

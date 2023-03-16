@@ -17,7 +17,14 @@ import "./style.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
+import Admin from "./pages/admin/Admin";
+import Adminregister from "./pages/admin/Adminregister";
+import Adminhome from "./pages/admin/Adminhome";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Friends from "./pages/friends/Friends";
+import Message from "./components/messages/Message";
+import ChatPage from "./components/msg/ChatPage";
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
@@ -65,6 +72,14 @@ function App() {
           path: "/profile/:id",
           element: <Profile />,
         },
+        {
+          path: "/friends",
+          element: <Friends />,
+        },
+        {
+          path: "/chat",
+          element: <ChatPage />,
+        },
       ],
     },
     {
@@ -74,6 +89,22 @@ function App() {
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/admin",
+      element: <Admin />,
+    },
+    {
+      path: "/adminregister",
+      element: <Adminregister />,
+    },
+    {
+      path: "/adminhome",
+      element: <Adminhome />,
+    },
+    {
+      path: "/messages",
+      element: <Message />,
     },
   ]);
 

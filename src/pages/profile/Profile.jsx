@@ -12,19 +12,35 @@ import Posts from "../../components/posts/Posts";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useLocation } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import Update from "../../components/update/Update";
 const Profile = () => {
   const [openUpdate, setOpenUpdate] = useState(false);
   const { currentUser } = useContext(AuthContext);
+  let [output, setOutput] = useState([]);
+
   const userId = parseInt(useLocation().pathname.split("/")[2]); //taking userid from url
+  console.log(userId);
+  // useEffect(() => {
+  //   getuser();
+  // }, [output]);
+  // const getuser = () => {
+  //   makeRequest.get(`/users/find/${userId}`).then((res) => {
+  //     console.log(data);
+  //     console.log("wrking");
+  //     setOutput(data);
+  //     return res.data;
+  //   });
+  // };
+  console.log(output);
+
   const { isLoading, error, data } = useQuery(["user"], () =>
     makeRequest.get("/users/find/" + userId).then((res) => {
+      console.log(data);
       return res.data;
     })
   );
-
   const { isLoading: rIsLoading, data: relationshipData } = useQuery(
     ["relationship"],
     () =>
@@ -59,12 +75,8 @@ const Profile = () => {
       ) : (
         <>
           <div className="images">
-            <img src={"/upload/" + data.coverPic} alt="" className="cover" />
-            <img
-              src={"/upload/" + data.profilePic}
-              alt=""
-              className="profilePic"
-            />
+            <img src={data.coverPic} alt="" className="cover" />
+            <img src={data.profilePic} alt="" className="profilePic" />
           </div>
           <div className="profileContainer">
             <div className="uInfo">

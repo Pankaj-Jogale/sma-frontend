@@ -4,7 +4,7 @@ import Friend from "../../assets/friend.png";
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import "./share.scss";
 import { makeRequest } from "../../axios";
 
@@ -25,6 +25,12 @@ const Share = () => {
   };
 
   const { currentUser } = useContext(AuthContext);
+  let userId = currentUser.id;
+  const { isLoading, error, data } = useQuery(["user"], () =>
+    makeRequest.get("/users/find/" + userId).then((res) => {
+      return res.data;
+    })
+  );
   //to post story and refresh page to see story immediately
   const queryClient = useQueryClient();
 

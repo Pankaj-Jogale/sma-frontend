@@ -16,6 +16,7 @@
       display: flex;
       align-items: center;
       gap: 30px;
+
       span {
         font-weight: bold;
         font-size: 20px;
@@ -29,16 +30,35 @@
         border: 1px solid themed("border");
         border-radius: 5px;
         padding: 5px;
+        position: relative;
         input {
           border: none;
           width: 500px;
           background-color: transparent;
           color: themed("textColor");
+          height: 20px;
           @include mobile {
             display: none;
           }
           @include tablet {
             width: 200px;
+          }
+        }
+        .list {
+          background-color: themed("bgSoft");
+          width: 500px;
+          position: absolute;
+          top: 52px;
+          min-height: 100px;
+          max-height: max-content;
+          overflow: scroll;
+          button {
+            width: 400px;
+            margin-left: 0%;
+            padding-left: 0%;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
           }
         }
       }
