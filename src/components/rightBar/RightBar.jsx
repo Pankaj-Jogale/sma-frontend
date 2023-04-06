@@ -25,32 +25,18 @@ const RightBar = () => {
     <div className="rightBar">
       <div className="container">
         <div className="item">
-          <span>Suggestions For You</span>
-          <div className="user">
-            <div className="userInfo">
-              <img
-                src="https://images.pexels.com/photos/3228732/pexels-photo-3228732.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
-              <span>User name</span>
-            </div>
-            <div className="buttons">
-              <button>Follow</button>
-              <button>Dismiss</button>
-            </div>
-          </div>
-          <div className="user">
-            <div className="userInfo">
-              <img
-                src="https://images.pexels.com/photos/3228732/pexels-photo-3228732.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
-              <span>User name</span>
-            </div>
-            <div className="buttons">
-              <button>Follow</button>
-              <button>Dismiss</button>
-            </div>
+          <span>Friends List</span>
+          {/* <button onClick={getfrds}>+</button> */}
+          <div className="user1">
+            {friends.map((val, key) => (
+              <div className="userInfo" key={key}>
+                <img src={val.profilePic} alt="" />
+                <div className="online" />
+                <span>
+                  <td>{val.name}</td>
+                </span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="item">
@@ -93,17 +79,32 @@ const RightBar = () => {
           </div>
         </div>
         <div className="item">
-          <span>Friends List</span>
-          <div className="user1">
-            {friends.map((val, key) => (
-              <div className="userInfo" key={key}>
-                <img src={val.profilePic} alt="" />
-                <div className="online" />
-                <span>
-                  <td>{val.name}</td>
-                </span>
-              </div>
-            ))}
+          <span>Suggestions For You</span>
+          <div className="user">
+            <div className="userInfo">
+              <img
+                src="https://images.pexels.com/photos/3228732/pexels-photo-3228732.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+              <span>User name</span>
+            </div>
+            <div className="buttons">
+              <button>Follow</button>
+              <button>Dismiss</button>
+            </div>
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img
+                src="https://images.pexels.com/photos/3228732/pexels-photo-3228732.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+              <span>User name</span>
+            </div>
+            <div className="buttons">
+              <button>Follow</button>
+              <button>Dismiss</button>
+            </div>
           </div>
         </div>
       </div>

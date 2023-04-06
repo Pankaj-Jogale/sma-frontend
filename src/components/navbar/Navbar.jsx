@@ -71,8 +71,8 @@ const Navbar = () => {
     setOutput([]);
   };
   function handleResultClick(result) {
-    console.log("called");
-    console.log(result.id);
+    // console.log("called");
+    // console.log(result.id);
 
     navigate(`/profile/${result.id}`);
     console.log(result.name); // Perform any other actions needed
@@ -154,7 +154,10 @@ const Navbar = () => {
         <EmailOutlinedIcon />
         <NotificationsNoneOutlinedIcon />
         <div className="user">
-          <img src={currentUser.profilePic || data.profilePic} alt="" />
+          {/* <img src={currentUser.profilePic && data.profilePic} alt="" /> */}
+          {/* <img src={currentUser.profilePic || data.profilePic} alt="" /> */}
+          {/* <img src={currentUser.profilePic} alt="" /> */}
+          <img src={currentUser.profilePic} alt="" />
           <span>{currentUser.name || data.name}</span>
         </div>
       </div>

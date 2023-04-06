@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -32,10 +33,8 @@ const Login = () => {
         <div className="left">
           <h1>Hello World.</h1>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
-            inventore illum sint eius, tenetur voluptatem quibusdam. Sit dicta
-            aliquid vitae laboriosam, aperiam quod iusto recusandae, debitis
-            tempore repellendus fugiat! Molestias!
+            Welcome back user,please use your credentials to loggedin in your
+            account!!!
           </p>
           <span>Don't you have an Account?</span>
           <Link to="/register">
@@ -44,11 +43,11 @@ const Login = () => {
         </div>
         <div className="right">
           {/* <div className="admin">
-          <button onClick={handleClick}>
-            <AdminPanelSettingsOutlinedIcon />
-            Admin
-          </button>
-        </div> */}
+            <button onClick={handleClick}>
+              <AdminPanelSettingsOutlinedIcon />
+              Admin
+            </button>
+          </div> */}
 
           <h1>Login</h1>
           <form>

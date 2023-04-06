@@ -8,8 +8,7 @@ import { makeRequest } from "../../axios";
 
 const Stories = () => {
   const { currentUser } = useContext(AuthContext);
-  let [output, setOutput] = useState([]);
-  let [info, setInfo] = useState([]);
+  const [output, setOutput] = useState([]);
 
   useEffect(() => {
     if (storyImage) {
@@ -24,7 +23,7 @@ const Stories = () => {
     let response = await axios.get(url);
     setOutput(response.data);
   };
-
+  console.log(output);
   const fileInputRef = useRef(null);
   const [storyImage, setStoryImage] = useState(null);
   let userId = currentUser.id;
@@ -80,13 +79,24 @@ const Stories = () => {
           </button>
         </form>
       </div>
+
+      {/* {output
+        .filter(
+          (story, index, self) =>
+            self.findIndex((s) => s.id === story.id) === index
+        )
+        .map((story) => (
+          <div className="story" key={story.id}>
+            <img src={story.img} alt={`Story by ${story.name}`} />
+            <span>{story.name}</span>
+          </div>
+        ))} */}
       {output.map((story) => (
         <div className="story" key={story.id}>
           <img src={story.img} alt={`Story by ${story.name}`} />
           <span>{story.name}</span>
         </div>
       ))}
-
       {/* <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileSelect} accept="image/*" />
         <button type="submit" disabled={!storyImage}>

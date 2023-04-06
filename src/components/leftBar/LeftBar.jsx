@@ -20,7 +20,12 @@ import { makeRequest } from "../../axios";
 
 const LeftBar = () => {
   const { currentUser } = useContext(AuthContext);
-
+  // const { isLoading, error, data } = useQuery(["user"], () =>
+  //   makeRequest.get("/users/find/" + currentUser.id).then((res) => {
+  //     console.log(data);
+  //     return res.data;
+  //   })
+  // );
   return (
     <div className="leftBar">
       <div className="container">

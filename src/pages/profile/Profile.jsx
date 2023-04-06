@@ -100,13 +100,19 @@ const Profile = () => {
               <div className="center">
                 <span>{data.name}</span>
                 <div className="info">
-                  <div className="item">
+                  <div className="item" style={{ marginLeft: "20px" }}>
                     <PlaceIcon />
                     <span>{data.city}</span>
                   </div>
-                  <div className="item">
+                  <div className="items">
                     <LanguageIcon />
-                    <span>{data.website}</span>
+                    <a
+                      className="items"
+                      href="https://pankaj-jogale-portfolio.web.app"
+                      target="_blank"
+                    >
+                      <span>{data.website}</span>
+                    </a>
                   </div>
                 </div>
                 {rIsLoading ? (

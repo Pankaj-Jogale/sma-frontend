@@ -49,6 +49,29 @@
       flex-direction: column;
       justify-content: center;
       gap: 50px;
+      .admin {
+        display: flex;
+
+        //padding: 5px;
+        margin-top: 0%;
+        justify-content: flex-end;
+        justify-items: center;
+        height: 100px;
+        margin-bottom: 0px;
+
+        button {
+          width: 40%;
+          height: 60%;
+          padding: 10px;
+          border: none;
+          background-color: rgb(144, 41, 196);
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 30px;
+          opacity: 0 0.11 0.23;
+        }
+      }
       h1 {
         color: #555;
       }

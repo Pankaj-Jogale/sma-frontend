@@ -8,7 +8,7 @@ const Adminhome = () => {
     getallfrds();
   };
   let getallfrds = async () => {
-    let url = `http://localhost:8800/users`;
+    let url = `http://localhost:8800/userslist`;
     let response = await axios.get(url);
 
     frdsList = [...response.data];
@@ -37,7 +37,9 @@ const Adminhome = () => {
 
   return (
     <div>
-      <button onClick={getallfrds}>+</button>
+      <button onClick={getallfrds} className="btn">
+        Get all users +
+      </button>
       <table>
         <tr>
           <th>UserName</th>

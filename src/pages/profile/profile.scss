@@ -78,6 +78,7 @@
           span {
             font-size: 30px;
             font-weight: 500;
+            min-width: 180px;
           }
           .info {
             width: 100%;
@@ -92,6 +93,17 @@
               color: themed("textColorSoft");
               span {
                 font-size: 12px;
+              }
+            }
+            .items {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              color: themed("textColorSoft");
+              text-decoration: none;
+              color: #5271ff;
+              span {
+                font-size: 11px;
               }
             }
           }

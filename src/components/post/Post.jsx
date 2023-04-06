@@ -25,7 +25,15 @@ const Post = ({ post }) => {
       return res.data;
     })
   );
-
+  // const {
+  //   isLoading: isLoadings,
+  //   error: errors,
+  //   data: datas,
+  // } = useQuery(["comments"], () =>
+  //   makeRequest.get("/comments?postId=" + post.id).then((res) => {
+  //     return res.data;
+  //   })
+  // );
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
@@ -80,6 +88,7 @@ const Post = ({ post }) => {
             onClick={() => {
               setMenuOpen(!menuOpen);
             }}
+            style={{ cursor: "pointer" }}
           />
           {menuOpen && post.userId === currentUser.id && (
             <button onClick={handleDelete}>delete</button>
@@ -102,13 +111,13 @@ const Post = ({ post }) => {
             ) : (
               <FavoriteBorderOutlinedIcon onClick={handleLike} />
             )}
-            {/* {data && data.length} Likes*....or below */}
             {data?.length} Likes
             {/* need these as some rows not have length */}
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <TextsmsOutlinedIcon />
-            Comments
+            {/* {datas?.length} Comment */}
+            Comment
           </div>
           <div className="item">
             <ShareOutlinedIcon />
